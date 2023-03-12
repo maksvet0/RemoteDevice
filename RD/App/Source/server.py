@@ -1,12 +1,11 @@
 import socket
+from colorama import *
 
-ip = "127.0.0.1"
+ip = socket.gethostname()
 port = 15
 server  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((ip, port))
 server.listen()
-while True:
-    user, adr = server.accept()
-    user.send(input().encode("utf-8"))
-    data = user.recv(1024)
-    print(data.decode("utf-8")) 
+print(Fore.WHITE + Back.YELLOW + "[*]Data is listened!")
+print(Style.RESET_ALL)
+input()
